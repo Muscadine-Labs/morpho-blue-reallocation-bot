@@ -30,7 +30,7 @@ async function run() {
 
   const ponder = spawn(
     "pnpm",
-    ["ponder", "start", "--schema", "ponder.schema.ts", "--config", "ponder.config.ts"],
+    ["ponder", "start", "--schema", "public", "--config", "ponder.config.ts"],
     { stdio: "inherit", cwd: "apps/ponder" },
   );
 

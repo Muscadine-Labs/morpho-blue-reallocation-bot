@@ -12,8 +12,8 @@ importers:
   .:
     dependencies:
       ponder:
-        specifier: ^0.10.13
-        version: 0.10.18(@opentelemetry/api@1.9.0)(@types/node@20.17.30)(hono@4.7.7)(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))
+        specifier: ^0.10.30
+        version: 0.10.30(@opentelemetry/api@1.9.0)(@types/node@20.17.30)(hono@4.7.7)(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))
       tsx:
         specifier: ^4.19.3
         version: 4.19.3
@@ -639,8 +639,8 @@ packages:
       typescript:
         optional: true
 
-  '@ponder/utils@0.2.3':
-    resolution: {integrity: sha512-QdlRXrn48nRM/QxNHRffO3PnIFvUf9qHE+rXSut44r74E4iiq9UrIPMhSMyCbJN68yU4QyTupZ/qpqE5PNAo8A==}
+  '@ponder/utils@0.2.7':
+    resolution: {integrity: sha512-7BcDd8y6Dmi+Bys4D0m+BULH9ug2XZ5Lsa4CwGSsJrY4OIQJerib6TENzTFHGR65XBV1gu9xLct9pMz7RpvAKg==}
     peerDependencies:
       typescript: '>=5.0.4'
       viem: 2.23.2
@@ -2053,8 +2053,8 @@ packages:
     resolution: {integrity: sha512-ip4qdzjkAyDDZklUaZkcRFb2iA118H9SgRh8yzTkSQK8HilsOJF7rSY8HoW5+I0M46AZgX/pxbprf2vvzQCE0Q==}
     hasBin: true
 
-  ponder@0.10.18:
-    resolution: {integrity: sha512-6H8XKquYiKwUTXaoS165E9cQPcaNUMX2awE67SbgV+XEb91W2oxdhoEqe6S8Pi0CUm2VLiS8dlG1PRPVDc1l7A==}
+  ponder@0.10.30:
+    resolution: {integrity: sha512-LwbngrFenEQFOvlys5geZeX9oFemWuJo3t/BWR6K+5EgZt+uhZB4QEgj8xK6KQV1DEZUoqoGUJyZsc8niRkWdA==}
     engines: {node: '>=18.14'}
     hasBin: true
     peerDependencies:
@@ -3064,7 +3064,7 @@ snapshots:
       - sql.js
       - sqlite3
 
-  '@ponder/utils@0.2.3(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))':
+  '@ponder/utils@0.2.7(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))':
     dependencies:
       viem: 2.23.2(typescript@5.8.3)
     optionalDependencies:
@@ -3305,15 +3305,6 @@ snapshots:
       magic-string: 0.30.17
     optionalDependencies:
       vite: 6.3.2(@types/node@20.17.30)(tsx@4.19.3)(yaml@2.7.1)
-
-  '@vitest/mocker@3.1.2(vite@6.3.2(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1))':
-    dependencies:
-      '@vitest/spy': 3.1.2
-      estree-walker: 3.0.3
-      magic-string: 0.30.17
-    optionalDependencies:
-      vite: 6.3.2(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1)
-    optional: true
 
   '@vitest/pretty-format@3.1.2':
     dependencies:
@@ -4309,7 +4300,7 @@ snapshots:
       sonic-boom: 3.8.1
       thread-stream: 2.7.0
 
-  ponder@0.10.18(@opentelemetry/api@1.9.0)(@types/node@20.17.30)(hono@4.7.7)(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3)):
+  ponder@0.10.30(@opentelemetry/api@1.9.0)(@types/node@20.17.30)(hono@4.7.7)(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3)):
     dependencies:
       '@babel/code-frame': 7.26.2
       '@commander-js/extra-typings': 12.1.0(commander@12.1.0)
@@ -4318,7 +4309,7 @@ snapshots:
       '@escape.tech/graphql-armor-max-depth': 2.4.0
       '@escape.tech/graphql-armor-max-tokens': 2.5.0
       '@hono/node-server': 1.13.3(hono@4.7.7)
-      '@ponder/utils': 0.2.3(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))
+      '@ponder/utils': 0.2.7(typescript@5.8.3)(viem@2.23.2(typescript@5.8.3))
       abitype: 0.10.3(typescript@5.8.3)
       ansi-escapes: 7.0.0
       commander: 12.1.0
@@ -4892,7 +4883,7 @@ snapshots:
   vitest@3.1.2(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1):
     dependencies:
       '@vitest/expect': 3.1.2
-      '@vitest/mocker': 3.1.2(vite@6.3.2(@types/node@22.14.1)(tsx@4.19.3)(yaml@2.7.1))
+      '@vitest/mocker': 3.1.2(vite@6.3.2(@types/node@20.17.30)(tsx@4.19.3)(yaml@2.7.1))
       '@vitest/pretty-format': 3.1.2
       '@vitest/runner': 3.1.2
       '@vitest/snapshot': 3.1.2

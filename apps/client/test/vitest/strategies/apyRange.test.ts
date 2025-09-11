@@ -56,6 +56,10 @@ class MinRatesTest extends ApyRange {
     this.config = testConfig;
   }
 
+  allowIdleReallocation() {
+    return this.config.ALLOW_IDLE_REALLOCATION;
+  }
+
   getApyRange(chainId: number, vaultAddress: Address, marketId: Hex) {
     let apyRange = this.config.DEFAULT_APY_RANGE;
 

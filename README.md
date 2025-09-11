@@ -132,21 +132,4 @@ Unfortunately, Ponder doesn't allow the same schema to be used with different co
 In this project, the config changes only if you add, remove, or modify a chain.
 
 So, if you try to run the bot with a set of chains that's different from the one used in your initial run, indexing will fail.
-There are two ways to handle this:
-
-### Reset the postgres database
-
-This is the easiest and most direct solution, but you will lose the indexed data for the previous chains.
-
-If you're using Docker to run the local Postgres database, you can simply stop and remove the container and its volume:
-
-```bash
-docker compose down -v
-```
-
-### Use a new database
-
-This way you can have different containers storing different indexing data for different sets of chains.
-
-- If you're using Docker to run the local Postgres database, just change the port both in the postgres url given to ponder (in `apps/ponder/ponder.config.ts`) and in `docker-compose.yml`.
-- If you are using an external postgres database, you just need to change the `POSTGRES_DATABASE_URL`.
+You should use another schema (this handled in `apps/client/src/script.ts`).

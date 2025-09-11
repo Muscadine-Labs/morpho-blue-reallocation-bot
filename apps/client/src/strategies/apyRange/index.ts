@@ -80,7 +80,7 @@ export class ApyRange implements Strategy {
     let idleDeposit = 0n;
 
     if (idleMarket) {
-      if (totalWithdrawableAmount > totalDepositableAmount && ALLOW_IDLE_REALLOCATION) {
+      if (totalWithdrawableAmount > totalDepositableAmount && this.allowIdleReallocation()) {
         idleDeposit = min(
           totalWithdrawableAmount - totalDepositableAmount,
           idleMarket.cap - idleMarket.vaultAssets,
@@ -153,7 +153,7 @@ export class ApyRange implements Strategy {
         });
       }
 
-      if (idleDeposit > 0n && ALLOW_IDLE_REALLOCATION) {
+      if (idleDeposit > 0n && this.allowIdleReallocation()) {
         deposits.push({
           marketParams: idleMarket.params,
           assets: maxUint256,
@@ -161,6 +161,10 @@ export class ApyRange implements Strategy {
       }
     }
     return [...withdrawals, ...deposits];
+  }
+
+  protected allowIdleReallocation() {
+    return ALLOW_IDLE_REALLOCATION;
   }
 
   protected getApyRange(chainId: number, vaultAddress: Address, marketId: Hex) {
