@@ -1,7 +1,6 @@
-import { createConfig, factory } from "ponder";
-import { type AbiEvent, getAbiItem, http } from "viem";
-
 import { chainConfig, chainConfigs } from "@morpho-blue-reallocation-bot/config";
+import { createConfig, factory } from "ponder";
+import { type AbiEvent, getAbiItem } from "viem";
 
 import { adaptiveCurveIrmAbi } from "./abis/AdaptiveCurveIrm";
 import { metaMorphoAbi } from "./abis/MetaMorpho";
@@ -10,22 +9,22 @@ import { morphoBlueAbi } from "./abis/MorphoBlue";
 
 const configs = Object.values(chainConfigs).map((config) => chainConfig(config.chain.id));
 
-const networks = Object.fromEntries(
+const chains = Object.fromEntries(
   configs.map((config) => [
     config.chain.name,
     {
-      chainId: config.chain.id,
-      transport: http(config.rpcUrl),
+      id: config.chain.id,
+      rpc: config.rpcUrl,
     },
   ]),
 );
 
 export default createConfig({
-  networks,
+  chains,
   contracts: {
     Morpho: {
       abi: morphoBlueAbi,
-      network: Object.fromEntries(
+      chain: Object.fromEntries(
         configs.map((config) => [
           config.chain.name,
           {
@@ -34,7 +33,7 @@ export default createConfig({
           },
         ]),
       ) as Record<
-        keyof typeof networks,
+        keyof typeof chains,
         {
           readonly address: `0x${string}`;
           readonly startBlock: number;
@@ -43,7 +42,7 @@ export default createConfig({
     },
     MetaMorpho: {
       abi: metaMorphoAbi,
-      network: Object.fromEntries(
+      chain: Object.fromEntries(
         configs.map((config) => [
           config.chain.name,
           {
@@ -56,7 +55,7 @@ export default createConfig({
           },
         ]),
       ) as Record<
-        keyof typeof networks,
+        keyof typeof chains,
         {
           readonly address: Factory<
             Extract<
@@ -70,7 +69,7 @@ export default createConfig({
     },
     AdaptiveCurveIRM: {
       abi: adaptiveCurveIrmAbi,
-      network: Object.fromEntries(
+      chain: Object.fromEntries(
         configs.map((config) => [
           config.chain.name,
           {
@@ -79,7 +78,7 @@ export default createConfig({
           },
         ]),
       ) as Record<
-        keyof typeof networks,
+        keyof typeof chains,
         {
           readonly address: `0x${string}`;
           readonly startBlock: number;
